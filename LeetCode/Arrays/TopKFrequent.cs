@@ -1,26 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LeetCode.Arrays
+﻿namespace LeetCode.Arrays
 {
     public partial class Solution
     {
-        public int[] TopKFrequentV1(int[] nums, int k) 
-        { 
-            Dictionary<int,int> numsFrequency = new Dictionary<int,int>();
-            foreach(int num in nums)
+        public int[] TopKFrequentV1(int[] nums, int k)
+        {
+            Dictionary<int, int> numsFrequency = new();
+            foreach (int num in nums)
             {
                 if (!numsFrequency.TryAdd(num, 1))
                 {
                     numsFrequency[num]++;
                 }
             }
-            numsFrequency = numsFrequency.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x=>x.Value);
+            numsFrequency = numsFrequency.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
             List<int> result = new();
-            foreach(var element in numsFrequency)
+            foreach (var element in numsFrequency)
             {
                 if (k >= 1)
                 {
@@ -34,10 +28,11 @@ namespace LeetCode.Arrays
             }
             return result.ToArray();
         }
-        public int[] TopKFrequentV2(int[] nums, int k) 
+
+        public int[] TopKFrequentV2(int[] nums, int k)
         {
-            Dictionary<int, int> numsFrequency = new Dictionary<int, int>();
-            List<int> result = new List<int>();
+            Dictionary<int, int> numsFrequency = new();
+            List<int> result = new();
             foreach (int num in nums)
             {
                 if (!numsFrequency.TryAdd(num, 1))
@@ -45,8 +40,8 @@ namespace LeetCode.Arrays
                     numsFrequency[num]++;
                 }
             }
-            PriorityQueue<int,int> priorityQueue = new PriorityQueue<int,int>();
-            foreach(var element in numsFrequency)
+            PriorityQueue<int, int> priorityQueue = new();
+            foreach (var element in numsFrequency)
             {
                 priorityQueue.Enqueue(element.Key, element.Value);
                 if (priorityQueue.Count > k)

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LeetCode.Arrays
+﻿namespace LeetCode.Arrays
 {
     public partial class Solution
     {
@@ -12,22 +6,22 @@ namespace LeetCode.Arrays
         {
             HashSet<char>[] rowHashs = new HashSet<char>[9];
             HashSet<char>[] colHashs = new HashSet<char>[9];
-            HashSet<char>[,] squareHashes = new HashSet<char>[3,3];
-            for (int i = 0;i <rowHashs.Length;i++)
+            HashSet<char>[,] squareHashes = new HashSet<char>[3, 3];
+            for (int i = 0; i < rowHashs.Length; i++)
             {
                 rowHashs[i] = new HashSet<char>();
                 colHashs[i] = new HashSet<char>();
             }
-            for(int i = 0; i < squareHashes.GetLength(0); i++)
+            for (int i = 0; i < squareHashes.GetLength(0); i++)
             {
-                for(int j = 0; j < squareHashes.GetLength(1); j++)
+                for (int j = 0; j < squareHashes.GetLength(1); j++)
                 {
-                    squareHashes[i,j] = new HashSet<char>();
+                    squareHashes[i, j] = new HashSet<char>();
                 }
             }
-            for(int rows  = 0; rows < board.Length; rows++)
+            for (int rows = 0; rows < board.Length; rows++)
             {
-                for(int cols = 0; cols < board[rows].Length; cols++)
+                for (int cols = 0; cols < board[rows].Length; cols++)
                 {
                     if (board[rows][cols] == '.')
                     {
@@ -36,10 +30,10 @@ namespace LeetCode.Arrays
                     if (rowHashs[rows].Contains(board[rows][cols])
                         || colHashs[cols].Contains(board[rows][cols])
                         || squareHashes[rows / 3, cols / 3].Contains(board[rows][cols]))
-                        {
+                    {
                         return false;
                     }
-                    
+
                     rowHashs[rows].Add(board[rows][cols]);
                     colHashs[rows].Add(board[rows][cols]);
                     squareHashes[rows / 3, cols / 3].Add(board[rows][cols]);
@@ -47,21 +41,22 @@ namespace LeetCode.Arrays
             }
             return true;
         }
+
         public bool IsValidSudokuV2(char[][] board)
         {
             HashSet<string> hashedBoard = new();
             char element;
-            for(int rows = 0;rows < board.Length; rows++)
+            for (int rows = 0; rows < board.Length; rows++)
             {
-                for(int cols = 0;cols < board[rows].Length; cols++)
+                for (int cols = 0; cols < board[rows].Length; cols++)
                 {
                     element = board[rows][cols];
                     if (element != '.')
                     {
-                        if ( !hashedBoard.Add($"{element} at rows {rows}")
+                        if (!hashedBoard.Add($"{element} at rows {rows}")
                             || !hashedBoard.Add($"{element} at cols {cols}")
-                            || !hashedBoard.Add($"{element} at sub square {rows/3} - {cols/3}"))
-                                {
+                            || !hashedBoard.Add($"{element} at sub square {rows / 3} - {cols / 3}"))
+                        {
                             return false;
                         }
                     }

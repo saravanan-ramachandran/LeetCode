@@ -1,20 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LeetCode.Arrays
+﻿namespace LeetCode.Arrays
 {
-    public partial class Solution 
+    public partial class Solution
     {
         //public int[] ProductExceptSelfV1(int[] nums)
         //{
-
         //}
         //public int[] ProductExceptSelfV2(int[] nums)
         //{
-
         //}
         public int[] ProductExceptSelfV3(int[] nums)
         {

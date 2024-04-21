@@ -1,6 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
-using LeetCode.Arrays;
 
 namespace LeetCode.Benchmarks;
 
@@ -14,7 +13,7 @@ public class Program
     [GlobalSetup]
     public void Setup()
     {
-        foreach(int i in nums)
+        foreach (int i in nums)
         {
             nums[i] = Random.Shared.Next();
         }
@@ -39,18 +38,39 @@ public class Program
     //    solution.ContainsDuplicateV3(nums);
     //}
 
+    //[Benchmark]
+    //public void GroupAnagramsV1()
+    //{
+    //    string[] strs = new string[] { "eat", "tea", "tan", "ate", "nat", "bat" };
+    //    Solution solution = new();
+    //    solution.GroupAnagramsV1(strs);
+    //}
+    //[Benchmark]
+    //public void GroupAnagramsV2()
+    //{
+    //    string[] strs = new string[] { "eat", "tea", "tan", "ate", "nat", "bat" };
+    //    Solution solution = new();
+    //    solution.GroupAnagramsV2(strs);
+    //}
     [Benchmark]
-    public void GroupAnagramsV1()
+    public void TrappingRainWaterV1()
     {
-        string[] strs = new string[] { "eat", "tea", "tan", "ate", "nat", "bat" };
-        Solution solution = new();
-        solution.GroupAnagramsV1(strs);
+        int[] nums = new int[] { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
+        TwoPointers.Solution solution = new();
+        solution.TrapV1(nums);
     }
     [Benchmark]
-    public void GroupAnagramsV2()
+    public void TrappingRainWaterV2()
     {
-        string[] strs = new string[] { "eat", "tea", "tan", "ate", "nat", "bat" };
-        Solution solution = new();
-        solution.GroupAnagramsV2(strs);
+        int[] nums = new int[] { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
+        TwoPointers.Solution solution = new();
+        solution.TrapV2(nums);
+    }
+    [Benchmark]
+    public void TrappingRainWaterV3()
+    {
+        int[] nums = new int[] { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
+        TwoPointers.Solution solution = new();
+        solution.TrapV3(nums);
     }
 }

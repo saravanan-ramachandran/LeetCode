@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LeetCode.TwoPointers
+﻿namespace LeetCode.TwoPointers
 {
     public partial class Solution
     {
         public int MaxAreaV1(int[] height)
         {
             int maxArea = Int32.MinValue;
-            for(int i = 0; i < height.Length; i++)
+            for (int i = 0; i < height.Length; i++)
             {
-                for(int j = i+1; j < height.Length; j++)
+                for (int j = i + 1; j < height.Length; j++)
                 {
                     int currentCapacity = (j - i) * Math.Min(height[i], height[j]);
                     maxArea = Math.Max(maxArea, currentCapacity);
@@ -21,6 +15,7 @@ namespace LeetCode.TwoPointers
             }
             return maxArea;
         }
+
         public int MaxAreaV2(int[] height)
         {
             int maxArea = Int32.MinValue;
@@ -30,7 +25,7 @@ namespace LeetCode.TwoPointers
             {
                 int currentCapacity = (right - left) * Math.Min(height[left], height[right]);
                 maxArea = Math.Max(maxArea, currentCapacity);
-                if ( left < right)
+                if (left < right)
                 {
                     left++;
                 }

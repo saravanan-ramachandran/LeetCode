@@ -1,4 +1,5 @@
 namespace LeetCode.Arrays;
+
 public partial class Solution
 {
     //Time Complexity - O(N * K * log K)
@@ -29,6 +30,7 @@ public partial class Solution
         }
         return result;
     }
+
     //Time Complexity - O(N * K)
     // n - no of strings, k - maximum length of string
     //Space Complexity - O(N * K)

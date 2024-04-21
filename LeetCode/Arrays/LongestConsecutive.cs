@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Xml.Linq;
-namespace LeetCode.Arrays
+﻿namespace LeetCode.Arrays
 {
     public partial class Solution
     {
@@ -24,7 +13,7 @@ namespace LeetCode.Arrays
         public int LongestConsecutiveV3(int[] nums)
         {
             int longestSequence = 0;
-            
+
             HashSet<int> visited = new(nums);
             for (int i = 0; i < nums.Length - 1; i++)
             {

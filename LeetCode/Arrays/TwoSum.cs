@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LeetCode.Arrays
+﻿namespace LeetCode.Arrays
 {
-    public partial class Solution 
+    public partial class Solution
     {
-        public int[] TwoSumV1(int[] nums, int target) 
+        public int[] TwoSumV1(int[] nums, int target)
         {
             int[] results = new int[2];
-            for(int i = 0; i < nums.Length - 1; i++)
+            for (int i = 0; i < nums.Length - 1; i++)
             {
                 for (int j = i + 1; j < nums.Length; j++)
                 {
@@ -25,11 +19,12 @@ namespace LeetCode.Arrays
             }
             return results;
         }
+
         public int[] TwoSumV2(int[] nums, int target)
         {
             int[] results = new int[2];
-            Dictionary<int,int> map = new Dictionary<int,int>();
-            for(int i = 0; i <= nums.Length - 1; i++)
+            Dictionary<int, int> map = new();
+            for (int i = 0; i <= nums.Length - 1; i++)
             {
                 int diff = target - nums[i];
                 if (map.ContainsKey(diff))

@@ -1,4 +1,5 @@
 using LeetCode.Arrays;
+
 namespace LeetCode.Tests.Arrays;
 
 public class IsValidSudokuTests
@@ -6,7 +7,7 @@ public class IsValidSudokuTests
     [Fact]
     public void IsValidSudokuV1_Returns_False()
     {
-        char[][] sudokuBoard = new char[9][] 
+        char[][] sudokuBoard = new char[9][]
         {
             new char[] { '1','2','3','4','5','6','7','8','9'},
             new char[] { '1','2','3','4','5','6','7','8','9'},
@@ -19,10 +20,11 @@ public class IsValidSudokuTests
             new char[] { '1','2','3','4','5','6','7','8','9'}
         };
 
-        Solution solution = new Solution();
+        Solution solution = new();
         var expected = solution.IsValidSudokuV1(sudokuBoard);
         Assert.True(!expected);
     }
+
     [Fact]
     public void IsValidSudokuV1_Returns_True()
     {
@@ -38,10 +40,11 @@ public class IsValidSudokuTests
             new char[] { '8','1','3','2','9','6','7','4','5'},
             new char[] { '2','7','4','3','5','1','6','9','8'}
         };
-        Solution solution = new Solution();
+        Solution solution = new();
         var expected = solution.IsValidSudokuV1(sudokuBoard);
         Assert.True(!expected);
     }
+
     [Fact]
     public void IsValidSudokuV2_Returns_False()
     {
@@ -58,10 +61,11 @@ public class IsValidSudokuTests
             new char[] { '1','2','3','4','5','6','7','8','9'}
         };
 
-        Solution solution = new Solution();
+        Solution solution = new();
         var expected = solution.IsValidSudokuV2(sudokuBoard);
         Assert.True(!expected);
     }
+
     [Fact]
     public void IsValidSudokuV2_Returns_True()
     {
@@ -77,7 +81,7 @@ public class IsValidSudokuTests
             new char[] { '8','1','3','2','9','6','7','4','5'},
             new char[] { '2','7','4','3','5','1','6','9','8'}
         };
-        Solution solution = new Solution();
+        Solution solution = new();
         var expected = solution.IsValidSudokuV2(sudokuBoard);
         Assert.True(!expected);
     }
